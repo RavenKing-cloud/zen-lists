@@ -10,8 +10,34 @@ todo_json_path = os.path.join(script_dir, "data", 'todo.json')
 
 # Function to load the JSON data
 def load_json():
+    if not os.path.exists(todo_json_path):
+        with open(todo_json_path, 'w') as f:
+            # Initialize with an example todo if file is empty
+            example_todo = {
+                "example_event": {
+                    "text": "Example Todo",
+                    "priority": 5,
+                    "completed": False
+                }
+            }
+            json.dump(example_todo, f, indent=4)
+            return example_todo
+
     with open(todo_json_path, 'r') as f:
-        return json.load(f)
+        data = json.load(f)
+        if not data:
+            # If JSON file is empty, create an example todo
+            example_todo = {
+                "example_event": {
+                    "text": "Example Todo",
+                    "priority": 5,
+                    "completed": False
+                }
+            }
+            data.update(example_todo)
+            with open(todo_json_path, 'w') as f:
+                json.dump(data, f, indent=4)
+        return data
 
 # Function to update the JSON file
 def update_json():

@@ -1,7 +1,7 @@
 {
-    "2024-06-21 20:18:04": {
-        "text": "Test",
-        "priority": 10,
+    "example_event": {
+        "text": "Example Todo",
+        "priority": 5,
         "completed": false
     }
 }
