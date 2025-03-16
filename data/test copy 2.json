@@ -1,6 +1,6 @@
 {
-    "example_event": {
-        "text": "Example Todo",
+    "example_entry": {
+        "text": "Example Entry",
         "priority": 5,
         "completed": false
     }
